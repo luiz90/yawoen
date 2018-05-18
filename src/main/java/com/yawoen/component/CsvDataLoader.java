@@ -20,6 +20,8 @@ public class CsvDataLoader {
 			CompanyDO companyDO = new CompanyDO(row[0].toUpperCase());
 			if (row.length > 1)
 				companyDO.setZipCode(row[1]);
+			if (row.length > 2)
+				companyDO.setWebsite(row[2]);
 			return companyDO;
 		}).collect(Collectors.toList());
 	}

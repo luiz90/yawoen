@@ -24,13 +24,12 @@ public class CompanyDO {
 
 	private String website;
 	
-	public CompanyDO(String name) {
-		this.name = name;
+	public CompanyDO() {
+		
 	}
 	
-	public CompanyDO(String name, String zipCode) {
+	public CompanyDO(String name) {
 		this.name = name;
-		this.zipCode = zipCode;
 	}
 
 	public CompanyDO(String name, String zipCode, String website) {

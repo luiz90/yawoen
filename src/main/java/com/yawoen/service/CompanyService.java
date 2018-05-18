@@ -6,9 +6,11 @@ import com.yawoen.domain.CompanyDO;
 
 public interface CompanyService {
 	
-	void update();
+	CompanyDO find(long id);
+	List<CompanyDO> findAll();
+	void update(CompanyDO companyDO, long id);
 	void delete(Long id);
-	void create(CompanyDO companyDO);
-	void create (List<CompanyDO> companies);
+	CompanyDO create(CompanyDO companyDO);
+	void create(List<CompanyDO> companies);
 
 }
