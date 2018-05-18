@@ -8,4 +8,5 @@ import com.yawoen.domain.CompanyDO;
 @Repository
 public interface CompanyRepository extends JpaRepository<CompanyDO, Long> {
 
+	public CompanyDO findByName(String name);
 }

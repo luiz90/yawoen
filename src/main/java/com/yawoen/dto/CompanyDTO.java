@@ -1,7 +1,5 @@
 package com.yawoen.dto;
 
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -9,7 +7,6 @@ public class CompanyDTO {
 
 	private Long id;
 
-	@NotNull(message = "Company name can not be null!")
 	private String name;
 
 	private String zipCode;
