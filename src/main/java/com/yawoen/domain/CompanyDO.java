@@ -27,6 +27,11 @@ public class CompanyDO {
 	public CompanyDO(String name) {
 		this.name = name;
 	}
+	
+	public CompanyDO(String name, String zipCode) {
+		this.name = name;
+		this.zipCode = zipCode;
+	}
 
 	public CompanyDO(String name, String zipCode, String website) {
 		this.name = name;
