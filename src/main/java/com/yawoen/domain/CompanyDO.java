@@ -24,7 +24,7 @@ public class CompanyDO {
 
 	private String website;
 	
-	private CompanyDO() {
+	public CompanyDO() {
 		
 	}
 	

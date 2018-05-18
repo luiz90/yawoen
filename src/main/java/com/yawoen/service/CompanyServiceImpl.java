@@ -53,16 +53,22 @@ public class CompanyServiceImpl implements CompanyService {
 		 * */
 		CompanyDO companyToUpdate = companyRepository.getOne(id);
 		
-		if (companyDO.getZipCode() != null || !companyDO.getZipCode().equals(""))
+		if (companyDO.getZipCode() != null && !companyDO.getZipCode().equals(""))
 			companyToUpdate.setZipCode(companyDO.getZipCode());
 
-		if (companyDO.getWebsite() != null || !companyDO.getWebsite().equals(""))
+		if (companyDO.getWebsite() != null && !companyDO.getWebsite().equals(""))
 			companyToUpdate.setWebsite(companyDO.getWebsite());
 		
-		if (companyDO.getName() != null || !companyDO.getName().equals(""))
+		if (companyDO.getName() != null && !companyDO.getName().equals(""))
 			companyToUpdate.setName(companyDO.getName());
 		
 		companyRepository.save(companyToUpdate);
 		
+	}
+
+	@Override
+	public List<CompanyDO> findAll() {
+		
+		return this.companyRepository.findAll();
 	}
 }

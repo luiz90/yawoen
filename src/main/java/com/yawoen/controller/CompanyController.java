@@ -1,5 +1,7 @@
 package com.yawoen.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,12 @@ public class CompanyController {
 	public CompanyController(final CompanyService companyService)
 	{
 		this.companyService = companyService;
+	}
+	
+	@GetMapping
+	public List<CompanyDTO> getCompanies()
+	{
+		return CompanyMapper.makeCompanyDTOList(companyService.findAll());
 	}
 	
 	@GetMapping("/{companyId}")

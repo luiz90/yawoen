@@ -12,10 +12,10 @@ public class CompanyMapper {
 	public static CompanyDO makeCompanyDO(CompanyDTO companyDTO) {
 		CompanyDO companyDO = new CompanyDO(companyDTO.getName());
 
-		if (companyDTO.getZipCode() != null || !companyDTO.getZipCode().equals(""))
+		if (companyDTO.getZipCode() != null && !companyDTO.getZipCode().equals(""))
 			companyDO.setZipCode(companyDTO.getZipCode());
 
-		if (companyDTO.getWebsite() != null || !companyDTO.getWebsite().equals(""))
+		if (companyDTO.getWebsite() != null && !companyDTO.getWebsite().equals(""))
 			companyDO.setWebsite(companyDTO.getWebsite());
 
 		return companyDO;
@@ -28,10 +28,10 @@ public class CompanyMapper {
 					.setId(companyDO.getId())
 					.setName(companyDO.getName());
 		
-		if (companyDO.getZipCode() != null || !companyDO.getZipCode().equals(""))
+		if (companyDO.getZipCode() != null && !companyDO.getZipCode().equals(""))
 			companyDTOBuilder.setZipCode(companyDO.getZipCode());
 
-		if (companyDO.getWebsite() != null || !companyDO.getWebsite().equals(""))
+		if (companyDO.getWebsite() != null && !companyDO.getWebsite().equals(""))
 			companyDTOBuilder.setWebsite(companyDO.getWebsite());
 		
 		return companyDTOBuilder.createCompanyDTO();
