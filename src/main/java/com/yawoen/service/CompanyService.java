@@ -8,6 +8,7 @@ public interface CompanyService {
 	
 	CompanyDO find(long id);
 	List<CompanyDO> findAll();
+	List<CompanyDO> find(String name, String zipCode);
 	void update(CompanyDO companyDO, long id);
 	void delete(Long id);
 	CompanyDO create(CompanyDO companyDO);

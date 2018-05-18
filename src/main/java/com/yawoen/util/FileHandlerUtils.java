@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
+import com.yawoen.exception.DataUploadException;
+
 public class FileHandlerUtils {
 	
 	public static List<File> createFiles(HttpServletRequest request, String id) throws IOException, ServletException{
@@ -23,9 +25,11 @@ public class FileHandlerUtils {
 	public static List<File> createFiles(List<InputStream> files, String id) throws IOException {
 		List<File> csvFiles = new ArrayList<>();
 		for (InputStream file : files) {
-			File targetFile = new File("/opt/tmp/" + id + "/" + file.hashCode());
-			FileUtils.copyInputStreamToFile(file, targetFile);
-			csvFiles.add(targetFile);
+			if (file != null) {
+				File targetFile = new File("/opt/tmp/" + id + "/" + file.hashCode());
+				FileUtils.copyInputStreamToFile(file, targetFile);
+				csvFiles.add(targetFile);
+			}
 		}
 		return csvFiles;
 	}
@@ -41,9 +45,8 @@ public class FileHandlerUtils {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-				return null;
 			}
-			return null;
+			throw new DataUploadException("All files must be valid");
 		}).collect(Collectors.toList());
 	}
 

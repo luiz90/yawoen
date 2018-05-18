@@ -71,4 +71,9 @@ public class CompanyServiceImpl implements CompanyService {
 		
 		return this.companyRepository.findAll();
 	}
+
+	@Override
+	public List<CompanyDO> find(String name, String zipCode) {
+		return this.companyRepository.findByNameContainingAndZipCode(name, zipCode);
+	}
 }

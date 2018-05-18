@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,6 +43,11 @@ public class CompanyController {
 	@GetMapping("/{companyId}")
 	public CompanyDTO getCompany(@Valid @PathVariable long companyId) {
 		return CompanyMapper.makeCompanyDTO(companyService.find(companyId));
+	}
+	
+	@GetMapping("/search")
+	public List<CompanyDTO> getCompanyByAttributes(@RequestParam("name") String name, @RequestParam("zip") String zip) {
+		return CompanyMapper.makeCompanyDTOList(companyService.find(name.toUpperCase(), zip));
 	}
 	
 	@PostMapping
