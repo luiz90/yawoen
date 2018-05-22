@@ -1,23 +1,21 @@
 package com.yawoen.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "companies")
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+//@Entity
+//@Table(name = "companies")
+@Document(collection = "companies")
 public class CompanyDO {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 
-	@Column(nullable = false)
-	@NotNull(message = "Company name can not be null!")
+//	@Column(nullable = false)
+//	@NotNull(message = "Company name can not be null!")
+	@Indexed
 	private String name;
 
 	private String zipCode;
@@ -38,11 +36,11 @@ public class CompanyDO {
 		this.website = website;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

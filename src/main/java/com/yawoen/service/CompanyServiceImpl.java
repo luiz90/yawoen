@@ -46,12 +46,7 @@ public class CompanyServiceImpl implements CompanyService {
 	@Override
 	public void update(CompanyDO companyDO, long id) {
 		
-		/*
-		 *  getOne(ID id) gets only a reference (proxy) object and does not fetch it from the DB. 
-		 *  On this reference it's possible to set what the user wants and on save() 
-		 *  it will do just an SQL UPDATE statement.
-		 * */
-		CompanyDO companyToUpdate = companyRepository.getOne(id);
+		CompanyDO companyToUpdate = findCompanyChecked(id);
 		
 		if (companyDO.getZipCode() != null && !companyDO.getZipCode().equals(""))
 			companyToUpdate.setZipCode(companyDO.getZipCode());

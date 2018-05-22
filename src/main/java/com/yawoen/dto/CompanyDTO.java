@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CompanyDTO {
 
-	private Long id;
+	private String id;
 
 	private String name;
 
@@ -16,7 +16,7 @@ public class CompanyDTO {
 	private CompanyDTO() {
 	}
 
-	public CompanyDTO(Long id, String name, String zipCode, String website) {
+	public CompanyDTO(String id, String name, String zipCode, String website) {
 		this.id = id;
 		this.name = name;
 		this.zipCode = zipCode;
@@ -27,7 +27,7 @@ public class CompanyDTO {
 		return new CompanyDTOBuilder();
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -45,12 +45,12 @@ public class CompanyDTO {
 
 	public static class CompanyDTOBuilder {
 
-		private Long id;
+		private String id;
 		private String name;
 		private String zipCode;
 		private String website;
 
-		public CompanyDTOBuilder setId(Long id) {
+		public CompanyDTOBuilder setId(String id) {
 			this.id = id;
 			return this;
 		}
